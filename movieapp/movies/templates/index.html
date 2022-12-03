@@ -1,0 +1,20 @@
+{% load static %}
+
+
+<h1> Home Page </h1>
+<ul>
+    {% for category in categories %}
+        <li>{{ category }}</li>
+    {% endfor %}
+</ul>
+<div id="films">
+    {% for film in films %}
+        {%  if film.homepage %}
+            <div>
+                <p>{{ film.filmName }}</p>
+                <p>{{ film.explanation }}</p>
+                <img src="{% static 'img/'|add:film.image %}" alt="">
+            </div>
+        {% endif %}
+    {%endfor%}
+</div>
